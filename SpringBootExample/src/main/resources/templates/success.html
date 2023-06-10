@@ -20,7 +20,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+
+    <tr th:each="student:${studentList}">
       <td><span th:text="${student.firstName}"></span></td>
       <td><span th:text="${student.lastName}"></span></td>
       <td><span th:text="${student.email}"></span></td>
@@ -29,7 +30,7 @@
 
 
 </table>
-<a href="/register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>
+<a href="/register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add New Student</a>
 
 </div>
     </span>
