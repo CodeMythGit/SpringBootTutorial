@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Success</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+<span class="border border-primary">
+            <div class="container">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">IsActive</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="student:${studentList}">
+                            <td><span th:text="${student.id}"></span></td>
+                            <td><span th:text="${student.firstName}"></span></td>
+                            <td><span th:text="${student.lastName}"></span></td>
+                            <td><span th:text="${student.emailAddress}"></span></td>
+                            <td>
+                                <span th:if="${student.active == true}" class="fa-regular fa-square-check" title="Disable this Student" />
+                                <span th:if="${student.active == false}" class="fa-regular fa-square icon-dark" title="Enable this Student" />
+                            </td>
+
+                            <td>
+                                <a th:href="@{'/editStudent/' + ${student.id}}" class="fa-regular fa-pen-to-square icon-dark" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a th:href="@{'/deleteStudent/' + ${student.id}}" class="fa-regular fa-trash-can icon-dark btn-delete" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="/register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add New Student</a>
+            </div>
+        </span>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi4+Nsz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSBp0w" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+<span class="border border-primary">
+            <div class="container">
+                <h1>Student Registration Form</h1>
+                <a th:href="@{/viewStudent}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">View Student</a>
+                <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+                    <input type="hidden" th:value="${student.id}" name="id" />
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" th:width="50" class="form-control" id="firstName" th:field="*{firstName}" />
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errorclass="error" th:errors="*{firstName}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" th:width="50" class="form-control" id="lastName" th:field="*{lastName}" />
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errorclass="error" th:errors="*{lastName}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="age">Age:</label>
+                            <input type="number" th:width="50" class="form-control" id="age" th:field="*{age}" />
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('age')}" th:errorclass="error" th:errors="*{age}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="emailAddress">Email:</label>
+                            <input type="text" th:width="50" class="form-control" id="emailAddress" th:field="*{emailAddress}" />
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('emailAddress')}" th:errorclass="error" th:errors="*{emailAddress}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="active">IsActive:</label>
+                            <input type="checkbox" th:field="*{active}" />
+                        </div>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </span>
+</body>
+</html>
