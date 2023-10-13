@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/studentdb
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: beans, loggers
+
+logging:
+  level:
+    org.springframework: info
+    org.hibernate: info
