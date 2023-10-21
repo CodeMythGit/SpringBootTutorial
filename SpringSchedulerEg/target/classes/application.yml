@@ -1,0 +1,6 @@
+#To enable executing multiple tasks, in parallel
+spring:
+  task:
+    scheduling:
+      pool:
+        size: 5
