@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{base :: head(~{::title})}">
+    <title>File Upload Download Application</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">CodeMyth</a>
+        </div>
+    </nav>
+    <h1>File Upload Download Application</h1>
+    <section>
+        <div class="items">
+            <form class="form-horizontal" role="form" th:action="@{/update}" th:object="${items}" method="POST">
+                <table class="table table-bordered table-striped" id="todoItems">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>FileType</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item,i : *{itemList}">
+                        <input type="hidden" th:field="*{itemList[__${i.index}__].id}" />
+                        <td th:text="${item.id}"></td>
+                        <td th:text="${item.fileName}"></td>
+                        <td th:text="${item.fileType}"></td>
+                        <td>
+                            <a th:href="@{/download(id=${item.id})}"
+                               title="Delete this item" class="fa-solid fa-download"></a>
+                            <a th:href="@{/delete(id=${item.id})}"
+                               title="Delete this item" class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <hr />
+
+        <!-- Item Input Form -->
+        <div class="input-group">
+            <form class="form-horizontal" role="form" th:action="@{/upload}" th:object="${newitem}" method="POST"
+                  enctype="multipart/form-data">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" name="files">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div>
+    </section>
+</div>
+</body>
+</html>
