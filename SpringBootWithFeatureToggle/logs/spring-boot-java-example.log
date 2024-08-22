@@ -1,0 +1,130 @@
+2024-08-22T20:40:05.353+05:30  INFO 10228 --- [main] spring.boot.java.example.ExampleApp      : Starting ExampleApp using Java 17.0.10 with PID 10228 (D:\CodeMyth\Programming\spring-boot-java-example\target\classes started by admin in D:\CodeMyth\Programming\SpringBootWithFeatureToggle)
+2024-08-22T20:40:05.355+05:30  INFO 10228 --- [main] spring.boot.java.example.ExampleApp      : No active profile set, falling back to 1 default profile: "default"
+2024-08-22T20:40:05.963+05:30  INFO 10228 --- [main] i.g.repository.FeatureBackupHandlerFile  : Unleash will try to load feature toggle states from temporary backup
+2024-08-22T20:40:05.963+05:30  INFO 10228 --- [main] i.g.repository.FeatureBackupHandlerFile  :  Unleash could not find the backup-file 'C:\Users\admin\AppData\Local\Temp\unleash-spring-boot-java-example-repo.json'. 
+This is expected behavior the first time unleash runs in a new environment.
+2024-08-22T20:40:05.964+05:30  INFO 10228 --- [main] i.g.r.ToggleBootstrapFileProvider        : Trying to read feature toggles from bootstrap file found at null
+2024-08-22T20:40:05.981+05:30  WARN 10228 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-08-22T20:40:05.980+05:30  WARN 10228 --- [unleash-api-executor] io.getunleash.event.UnleashSubscriber    : Error fetching toggles from Unleash API - StatusCode: 401
+
+io.getunleash.UnleashException: Error fetching toggles from Unleash API - StatusCode: 401
+	at io.getunleash.repository.FeatureToggleResponse.publishTo(FeatureToggleResponse.java:77) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at io.getunleash.event.EventDispatcher.lambda$dispatch$0(EventDispatcher.java:20) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-08-22T20:40:05.990+05:30  INFO 10228 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-22T20:40:06.001+05:30 ERROR 10228 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.3.jar:3.2.3]
+	at spring.boot.java.example.ExampleApp.main(ExampleApp.java:19) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webServerFactory' defined in spring.boot.java.example.ExampleApp: Failed to instantiate [org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory]: Factory method 'webServerFactory' threw exception with message: Could not initialize Unleash, got response code 401
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:223) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:186) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-3.2.3.jar:3.2.3]
+	... 8 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory]: Factory method 'webServerFactory' threw exception with message: Could not initialize Unleash, got response code 401
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647) ~[spring-beans-6.1.4.jar:6.1.4]
+	... 20 common frames omitted
+Caused by: io.getunleash.UnleashException: Could not initialize Unleash, got response code 401
+	at io.getunleash.repository.FeatureRepository.lambda$updateFeatures$1(FeatureRepository.java:138) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at io.getunleash.repository.FeatureRepository.initCollections(FeatureRepository.java:105) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at io.getunleash.repository.FeatureRepository.<init>(FeatureRepository.java:49) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at io.getunleash.repository.FeatureRepository.<init>(FeatureRepository.java:33) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at io.getunleash.DefaultUnleash.defaultToggleRepository(DefaultUnleash.java:50) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at io.getunleash.DefaultUnleash.<init>(DefaultUnleash.java:54) ~[unleash-client-java-9.2.0.jar:9.2.0]
+	at spring.boot.java.example.ExampleApp.webServerFactory(ExampleApp.java:34) ~[classes/:na]
+	at spring.boot.java.example.ExampleApp$$SpringCGLIB$$0.CGLIB$webServerFactory$0(<generated>) ~[classes/:na]
+	at spring.boot.java.example.ExampleApp$$SpringCGLIB$$FastClass$$1.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258) ~[spring-core-6.1.4.jar:6.1.4]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-6.1.4.jar:6.1.4]
+	at spring.boot.java.example.ExampleApp$$SpringCGLIB$$0.webServerFactory(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140) ~[spring-beans-6.1.4.jar:6.1.4]
+	... 21 common frames omitted
+
+2024-08-22T20:40:25.031+05:30  INFO 9512 --- [main] spring.boot.java.example.ExampleApp      : Starting ExampleApp using Java 17.0.10 with PID 9512 (D:\CodeMyth\Programming\spring-boot-java-example\target\classes started by admin in D:\CodeMyth\Programming\SpringBootWithFeatureToggle)
+2024-08-22T20:40:25.033+05:30  INFO 9512 --- [main] spring.boot.java.example.ExampleApp      : No active profile set, falling back to 1 default profile: "default"
+2024-08-22T20:40:25.648+05:30  INFO 9512 --- [main] i.g.repository.FeatureBackupHandlerFile  : Unleash will try to load feature toggle states from temporary backup
+2024-08-22T20:40:25.649+05:30  INFO 9512 --- [main] i.g.repository.FeatureBackupHandlerFile  :  Unleash could not find the backup-file 'C:\Users\admin\AppData\Local\Temp\unleash-spring-boot-java-example-repo.json'. 
+This is expected behavior the first time unleash runs in a new environment.
+2024-08-22T20:40:25.649+05:30  INFO 9512 --- [main] i.g.r.ToggleBootstrapFileProvider        : Trying to read feature toggles from bootstrap file found at null
+2024-08-22T20:40:25.983+05:30  INFO 9512 --- [main] o.s.b.w.e.j.JettyServletWebServerFactory : Server initialized with port: 8443
+2024-08-22T20:40:25.987+05:30  INFO 9512 --- [main] org.eclipse.jetty.server.Server          : jetty-12.0.6; built: 2024-01-30T02:43:24.387Z; git: 78ab6e6ba163f89cdd97f2ae0283fbb5e371cfaf; jvm 17.0.10+11-LTS-240
+2024-08-22T20:40:26.009+05:30  INFO 9512 --- [main] o.e.j.s.h.ContextHandler.application     : Initializing Spring embedded WebApplicationContext
+2024-08-22T20:40:26.009+05:30  INFO 9512 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 947 ms
+2024-08-22T20:40:26.115+05:30  INFO 9512 --- [main] o.e.j.session.DefaultSessionIdManager    : Session workerName=node0
+2024-08-22T20:40:26.119+05:30  INFO 9512 --- [main] o.e.jetty.server.handler.ContextHandler  : Started osbwej.JettyEmbeddedWebAppContext@18d47df0{application,/,b=file:/C:/Users/admin/AppData/Local/Temp/jetty-docbase.8443.10901079124427722165/,a=AVAILABLE,h=oeje10s.SessionHandler@28393e82{STARTED}}
+2024-08-22T20:40:26.120+05:30  INFO 9512 --- [main] o.e.j.e.servlet.ServletContextHandler    : Started osbwej.JettyEmbeddedWebAppContext@18d47df0{application,/,b=file:/C:/Users/admin/AppData/Local/Temp/jetty-docbase.8443.10901079124427722165/,a=AVAILABLE,h=oeje10s.SessionHandler@28393e82{STARTED}}
+2024-08-22T20:40:26.121+05:30  INFO 9512 --- [main] org.eclipse.jetty.server.Server          : Started oejs.Server@40ef0af8{STARTING}[12.0.6,sto=0] @1846ms
+2024-08-22T20:40:26.127+05:30  WARN 9512 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'buildInfoController' defined in file [D:\CodeMyth\Programming\spring-boot-java-example\target\classes\spring\boot\java\example\controller\BuildInfoController.class]: null
+2024-08-22T20:40:26.129+05:30  INFO 9512 --- [main] org.eclipse.jetty.server.Server          : Stopped oejs.Server@40ef0af8{STOPPING}[12.0.6,sto=0]
+2024-08-22T20:40:26.131+05:30  INFO 9512 --- [main] o.e.j.e.servlet.ServletContextHandler    : Stopped osbwej.JettyEmbeddedWebAppContext@18d47df0{application,/,b=file:/C:/Users/admin/AppData/Local/Temp/jetty-docbase.8443.10901079124427722165/,a=AVAILABLE,h=oeje10s.SessionHandler@28393e82{STOPPED}}
+2024-08-22T20:40:26.141+05:30  INFO 9512 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-22T20:40:26.152+05:30 ERROR 9512 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'buildInfoController' defined in file [D:\CodeMyth\Programming\spring-boot-java-example\target\classes\spring\boot\java\example\controller\BuildInfoController.class]: null
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1317) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1202) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.3.jar:3.2.3]
+	at spring.boot.java.example.ExampleApp.main(ExampleApp.java:19) ~[classes/:na]
+Caused by: java.lang.ExceptionInInitializerError: null
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:88) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1311) ~[spring-beans-6.1.4.jar:6.1.4]
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: resource build-info.json not found.
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:220) ~[guava-33.1.0-jre.jar:na]
+	at com.google.common.io.Resources.getResource(Resources.java:196) ~[guava-33.1.0-jre.jar:na]
+	at spring.boot.java.example.controller.BuildInfoController.loadBuildInfo(BuildInfoController.java:21) ~[classes/:na]
+	at spring.boot.java.example.controller.BuildInfoController.<clinit>(BuildInfoController.java:17) ~[classes/:na]
+	... 25 common frames omitted
+
